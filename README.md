@@ -34,7 +34,7 @@
 
 [GitHub Repository](https://github.com/aaguimond/module10-challenge-svg-logo-maker)
 
-[Link to video showing the working application](N/A)
+[Link to video showing the working application](https://drive.google.com/file/d/1B2J1drTNAmUVwJIyAqLH7oWgW9mb3KMq/view)
 
 
 ## Media for Application
@@ -43,7 +43,7 @@
 
 ![screenshot showing the functionality of the application](./screenshots/SVGLogoMakerAnswers.png)
 
-[Link to video showing the working application](placeholder)
+[Link to video showing the working application](https://drive.google.com/file/d/1B2J1drTNAmUVwJIyAqLH7oWgW9mb3KMq/view)
 
 ## Purpose
 
