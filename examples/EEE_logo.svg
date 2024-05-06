@@ -1,4 +1,0 @@
-<svg width="300" height="200">
-                    <polygon points="0,200 150,0 300,200" fill="black" stroke="none" />
-                    <text x="50%" y="180" font-size="90px" dominant-baseline="middle" text-anchor="middle" fill="yellow">EEE</text>
-                </svg>

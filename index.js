@@ -178,7 +178,7 @@ const questions = [
         name: 'textColor',
         message: 'Please enter a color or a hexadecimal color code for your text.',
         filter: textColor => textColor.trim(),
-        validate: color => validColor(color) ? true : 'Please enter a valid color or hexadecimal color code.'
+        validate: color => validColor(color) ? true : 'Invalid color. Please enter a valid color or hexadecimal color code.'
     },
     {
         type: 'list',
