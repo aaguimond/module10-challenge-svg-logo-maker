@@ -1,7 +1,9 @@
+// Importing dependencies, shape data
 const fs = require('fs')
 const { Square, Rectangle, Circle, Triangle, InvertedTriangle, Pentagon, Hexagon } = require('./lib/shapes.js')
 const inquirer = require('inquirer')
 
+// Defining our shape choices for Inquirer
 const shapeChoices = [
     { name: "Square", value: "Square" },
     { name: "Rectangle", value: "Rectangle" },
@@ -12,8 +14,12 @@ const shapeChoices = [
     { name: "Hexagon", value: "Hexagon" }
 ]
 
+// Defining our hexadecimal notation and all of the color keywords to help us later validate if a
+// user's color input is a valid keyword
 function validColor(value) {
+    // Hexadecimal using Regex
     const hexRegex = /^#(?:[0-9a-fA-F]{3}){1,2}$/;
+    // Color keywords
     const colorKeywords = [
         `aliceblue`,
         `antiquewhite`,
@@ -166,6 +172,7 @@ function validColor(value) {
     return hexRegex.test(value) || colorKeywords.includes(value.toLowerCase());
 }
 
+// Inquirer questions for users. Validate checks if user input is within defined boundaries
 const questions = [
     {
         type: 'input',
@@ -203,6 +210,7 @@ const questions = [
         type: 'input',
         name: 'outlineColor',
         message: 'What color would you like for the outline?',
+        // Only asking this question if the response to the above question is true
         when: function(answers) {
             return answers.outline;
         },
@@ -210,6 +218,7 @@ const questions = [
     }
 ];
 
+// Writing our data to our SVG file or returning an error if unable to
 function writeToFile(filename, response) {
     fs.writeFile(`./examples/${filename}`, response, (error) => {
         if (error) {
@@ -220,6 +229,7 @@ function writeToFile(filename, response) {
     });
 }
 
+// Creating our SVG code based on the user responses or returning an error if a problem occurs
 function createShape(response) {
     const { shape, shapeColor, text, textColor, stroke } = response;
     const shapeClassMap = {
@@ -240,7 +250,7 @@ function createShape(response) {
     return new ShapeClass(shapeColor, response.outlineColor || 'none', text, textColor)
 }
 
-// Initializing our application
+// Initializing our application, logging the user responses, creating the SVG, or returning an error message
 function init() {
     inquirer.prompt(questions)
         .then((response) => {
